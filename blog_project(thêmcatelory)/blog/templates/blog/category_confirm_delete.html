@@ -1,0 +1,20 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+
+<div class="header-bar">
+    <div>
+        <h1>Xóa phân loại</h1>
+    </div>
+    <a href="{% url 'categories' %}">&#x2190; Quay lại</a>
+</div>
+
+<div class="card-body">
+    <form method="POST">
+        {% csrf_token %}
+        <p>Bạn có chắc chắn muốn xóa phân loại "{{ category.name }}"?</p>
+        <p><small>Lưu ý: Các công việc thuộc phân loại này sẽ không bị xóa.</small></p>
+        <input class="button delete-button" type="submit" value="Xác nhận xóa">
+    </form>
+</div>
+
+{% endblock content %}
